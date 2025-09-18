@@ -162,10 +162,43 @@ window.addEventListener("load", () => {
 
 
 
-// function emailController() {
-//   var emailTujuan = "dhehanprawira@gmail.com"; // Ganti dengan alamat email tujuan
-//   var subjek = "Pesan dari Tombol";
-//   var isiPesan = "Halo,\n\nSaya ingin mengirim pesan ini.";
+document.addEventListener("DOMContentLoaded", function () {
+  // Efek Typewriter
+  const typewriterText = document.getElementById("typewriter-text");
+  const text = "type portfolio_summary.txt";
+  let i = 0;
+  function typeWriter() {
+    if (i < text.length) {
+      typewriterText.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, 100);
+    }
+  }
+  typeWriter();
 
-//   window.location.href = "mailto:" + emailTujuan + "?subject=" + encodeURIComponent(subjek) + "&body=" + encodeURIComponent(isiPesan);
-// }
+  // Fungsi untuk scroll ke section
+  window.scrollToSection = function (sectionId) {
+    document.getElementById(sectionId).scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
+  // BARU: Logika untuk Hamburger Menu
+  const hamburger = document.querySelector(".hamburger");
+  const mobileNav = document.querySelector(".mobile-nav");
+  const mobileLinks = document.querySelectorAll(".mobile-link");
+
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("is-active");
+    mobileNav.classList.toggle("is-active");
+  });
+  
+  // BARU: Tutup menu saat link di-klik
+  mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+          hamburger.classList.remove("is-active");
+          mobileNav.classList.remove("is-active");
+      });
+  });
+
+});

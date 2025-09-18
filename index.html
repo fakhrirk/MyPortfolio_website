@@ -2,13 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" conLOtent="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Muhammad Fakhri Riziq Khan - Web Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <!-- Navigation -->
     <nav class="navbar">
       <div class="nav-container">
         <div class="nav-logo">
@@ -20,10 +19,19 @@
           <a href="#projects" class="nav-link">PROJECTS</a>
           <a href="#contact" class="nav-link">CONTACT</a>
         </div>
+        <button class="hamburger">
+          <div class="bar"></div>
+        </button>
       </div>
     </nav>
 
-    <!-- Hero Section -->
+    <div class="mobile-nav">
+      <a href="#about" class="mobile-link">ABOUT</a>
+      <a href="#experience" class="mobile-link">EXPERIENCE</a>
+      <a href="#projects" class="mobile-link">PROJECTS</a>
+      <a href="#contact" class="mobile-link">CONTACT</a>
+    </div>
+
     <section class="hero">
       <div class="crt-overlay"></div>
       <div class="hero-container">
@@ -51,10 +59,7 @@
               <span class="glitch neon-text" data-text="RIZIQ KHAN">RIZIQ KHAN</span>
             </h1>
             <p class="hero-subtitle pixel-text">SOFTWARE_ENGINEER.EXE</p>
-            <p class="hero-description">
-              My name is Muhammad Fakhri Riziq Khan, I am 17 years old and was born in Cirebon, Indonesia. I have a strong interest in technology, especially in software development and programming. I enjoy learning new things, solving
-              problems through code, and building useful applications.
-            </p>
+            <p class="hero-description">My name is Muhammad Fakhri Riziq Khan, I am 17 years old and was born in Cirebon, Indonesia. I have a strong interest in technology, especially in software development and programming. I enjoy learning new things, solving problems through code, and building useful applications.</p>
             <div class="hero-buttons">
               <button class="retro-btn primary" onclick="scrollToSection('contact')">
                 <span>CONTACT.BAT</span>
@@ -84,7 +89,6 @@
       </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="about">
       <div class="container">
         <div class="section-header">
@@ -133,7 +137,6 @@
       </div>
     </section>
 
-    <!-- Experience Section -->
     <section id="experience" class="experience">
       <div class="container">
         <div class="section-header">
@@ -150,11 +153,7 @@
               <div class="card-content">
                 <h3>Website Developer (IDN Connect)</h3>
                 <p class="company">SMK IDN Boarding School</p>
-                <p>
-                  I am currently entrusted with the responsibility of developing one of my school’s official websites, called IDN Connect. Unlike a typical school blog, this platform is designed to be more complex and feature-rich, serving
-                  not only as an information hub but also as a space that supports interaction and engagement within the school community. This project has allowed me to apply my technical skills in a real-world context while also enhancing
-                  my ability to manage, design, and implement a website that meets broader needs.
-                </p>
+                <p>I am currently entrusted with the responsibility of developing one of my school’s official websites, called IDN Connect. Unlike a typical school blog, this platform is designed to be more complex and feature-rich, serving not only as an information hub but also as a space that supports interaction and engagement within the school community. This project has allowed me to apply my technical skills in a real-world context while also enhancing my ability to manage, design, and implement a website that meets broader needs.</p>
                 <div class="tech-tags">
                   <span class="tag">HTML</span>
                   <span class="tag">CSS</span>
@@ -177,11 +176,7 @@
               <div class="card-content">
                 <h3>Fullstack Web Developer</h3>
                 <p class="company">Percetakan Firdaus</p>
-                <p>
-                  As a Fullstack Web Developer at Percetakan Firdaus, I am responsible for developing and maintaining the company's website and web applications. My role involves both frontend and backend development, ensuring a seamless
-                  user experience and robust functionality. I work with technologies such as HTML, CSS, JavaScript, React, Tailwind, PHP, and Laravel to create efficient and scalable solutions that meet the needs of the business and its
-                  customers.
-                </p>
+                <p>As a Fullstack Web Developer at Percetakan Firdaus, I am responsible for developing and maintaining the company's website and web applications. My role involves both frontend and backend development, ensuring a seamless user experience and robust functionality. I work with technologies such as HTML, CSS, JavaScript, React, Tailwind, PHP, and Laravel to create efficient and scalable solutions that meet the needs of the business and its customers.</p>
                 <div class="tech-tags">
                   <span class="tag">HTML</span>
                   <span class="tag">CSS</span>
@@ -203,10 +198,7 @@
               <div class="card-content">
                 <h3>Web Design Competition (Batiku.)</h3>
                 <p class="company">Udayana University</p>
-                <p>
-                  I had the opportunity to lead a team in a Web Design competition organized by Udayana University in Bali. Although my team and I only reached the final round, the experience taught me valuable lessons in leadership,
-                  teamwork, time management, and creativity, which continue to strengthen my growth as a future software engineer.
-                </p>
+                <p>I had the opportunity to lead a team in a Web Design competition organized by Udayana University in Bali. Although my team and I only reached the final round, the experience taught me valuable lessons in leadership, teamwork, time management, and creativity, which continue to strengthen my growth as a future software engineer.</p>
                 <div class="tech-tags">
                   <span class="tag">JavaScript</span>
                   <span class="tag">CSS</span>
@@ -225,10 +217,7 @@
               <div class="card-content">
                 <h3>Web Development (SemuaBisa)</h3>
                 <p class="company">Lampung University</p>
-                <p>
-                  I had the opportunity to participate in a Website Development competition organized by UNILA University. Although I only reached the final round, the majority of the competitors were university students, which made the
-                  experience even more meaningful. This achievement not only strengthened my technical skills but also enhanced my confidence, adaptability, and perseverance when facing highly competitive challenges.
-                </p>
+                <p>I had the opportunity to participate in a Website Development competition organized by UNILA University. Although I only reached the final round, the majority of the competitors were university students, which made the experience even more meaningful. This achievement not only strengthened my technical skills but also enhanced my confidence, adaptability, and perseverance when facing highly competitive challenges.</p>
                 <div class="tech-tags">
                   <span class="tag">JavaScript</span>
                   <span class="tag">CSS</span>
@@ -242,7 +231,6 @@
       </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="projects">
       <div class="container">
         <div class="section-header">
@@ -295,10 +283,7 @@
             </div>
             <div class="project-info">
               <h3>Analytics Dashboard</h3>
-              <p>
-                This is one of the projects I created: an inventory website. It allows you to view your store's stock in real time, analyze your Cost of Goods Sold, and record every transaction (receipts, expenses, and transfers) in detail
-                for transparency and accountability.
-              </p>
+              <p>This is one of the projects I created: an inventory website. It allows you to view your store's stock in real time, analyze your Cost of Goods Sold, and record every transaction (receipts, expenses, and transfers) in detail for transparency and accountability.</p>
               <div class="tech-tags">
                 <span class="tag">Vue.js</span>
                 <span class="tag">D3.js</span>
@@ -318,10 +303,7 @@
             </div>
             <div class="project-info">
               <h3>Percetakan Firdaus Website</h3>
-              <p>
-                This is one of the company websites I've been developing. On this website, buyers can not only view product images and details but also purchase directly from the website. The website features a bot that can answer questions
-                users may have.
-              </p>
+              <p>This is one of the company websites I've been developing. On this website, buyers can not only view product images and details but also purchase directly from the website. The website features a bot that can answer questions users may have.</p>
               <div class="tech-tags">
                 <span class="tag">HTML</span>
                 <span class="tag">CSS</span>
@@ -358,7 +340,6 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="contact">
       <div class="container">
         <div class="section-header">
@@ -396,11 +377,10 @@
       </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
-          <p class="pixel-text">© 2025 MUHAMMAD_FAKHRI_RIZIQ_KHAN.EXE</p>
+          <p class="pixel-text">© 2024 MUHAMMAD_FAKHRI_RIZIQ_KHAN.EXE</p>
           <a href="#" class="my-cv">
             <div class="social-links">
               <p>📄</p>

@@ -1,4 +1,4 @@
-/* Converting to retro theme with vintage computing aesthetics */
+/* Kode CSS Anda dari :root sampai .pixel-arrow tetap sama */
 :root {
   --bg-primary: #0a0a0a;
   --bg-secondary: #1a1a1a;
@@ -19,6 +19,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -82,6 +86,94 @@ body {
   text-shadow: 0 0 5px var(--accent-primary);
 }
 
+/* BARU: Hamburger Menu */
+.hamburger {
+  display: none; /* Sembunyikan di desktop */
+  position: relative;
+  width: 30px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.hamburger .bar {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--text-primary);
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger .bar::before,
+.hamburger .bar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--text-primary);
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger .bar::before {
+  transform: translateY(-9px);
+}
+
+.hamburger .bar::after {
+  transform: translateY(9px);
+}
+
+.hamburger.is-active .bar {
+  background-color: transparent;
+}
+
+.hamburger.is-active .bar::before {
+  transform: rotate(45deg);
+}
+
+.hamburger.is-active .bar::after {
+  transform: rotate(-45deg);
+}
+
+/* BARU: Mobile Navigation Menu */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 100%; /* Mulai dari luar layar */
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(10, 10, 10, 0.98);
+  backdrop-filter: blur(10px);
+  z-index: 1001;
+  transition: left 0.3s ease-in-out;
+}
+
+.mobile-nav.is-active {
+  left: 0; /* Pindahkan ke dalam layar saat aktif */
+}
+
+.mobile-link {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 1.5rem;
+  transition: color 0.3s;
+}
+
+.mobile-link:hover {
+  color: var(--accent-primary);
+}
+
+
 /* Hero Section */
 .hero {
   min-height: 100vh;
@@ -89,7 +181,9 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
+  margin-top: 10px;
   background: linear-gradient(45deg, var(--bg-primary), var(--bg-secondary));
+  padding-top: 80px; /* BARU: Beri ruang untuk navbar */
 }
 
 .crt-overlay {
@@ -120,7 +214,6 @@ body {
   border: 2px solid var(--accent-primary);
   border-radius: 8px;
   margin-bottom: 2rem;
-  margin-top: 40px;
   box-shadow: var(--shadow-glow);
 }
 
@@ -163,10 +256,12 @@ body {
   padding: 1rem;
   font-family: var(--font-mono);
   background: var(--bg-primary);
+  overflow-x: auto; /* BARU: Agar teks terminal tidak overflow */
 }
 
 .typewriter {
   color: var(--text-primary);
+  white-space: nowrap; /* BARU: Mencegah teks terminal wrap */
 }
 
 .prompt {
@@ -285,6 +380,7 @@ body {
 .hero-buttons {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap; /* BARU: Agar tombol tidak tumpang tindih */
 }
 
 .retro-btn {
@@ -343,7 +439,7 @@ body {
 }
 
 .screen {
-  width: 300px;
+  width: 300px; /* Biarkan ini sebagai max-width nanti */
   height: 300px;
   background: var(--bg-primary);
   border: 3px solid #000;
@@ -378,6 +474,10 @@ body {
 }
 
 /* Sections */
+section { /* BARU: Beri padding atas untuk semua section agar tidak tertutup navbar */
+    padding-top: 80px;
+    margin-top: -80px; /* Offset untuk anchor link (#) */
+}
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -424,6 +524,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex-wrap: wrap; /* BARU: agar tidak overflow di layar kecil */
 }
 
 .card-content {
@@ -512,7 +613,7 @@ body {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* BARU: minmax dikecilkan */
   gap: 2rem;
 }
 
@@ -624,8 +725,8 @@ body {
 
 .social-links:hover {
   background-color: var(--accent-primary);
-   transition: all 0.3s ease;
-   overflow: hidden;
+  transition: all 0.3s ease;
+  overflow: hidden;
 }
 
 .my-cv {
@@ -678,35 +779,63 @@ body {
   }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* BARU: Responsive Design (Blok ini di-update total) */
+@media (max-width: 992px) {
   .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 2rem;
   }
-
+  .hero-text {
+    order: 2; /* Teks di bawah gambar */
+  }
+  .hero-image {
+    order: 1; /* Gambar di atas teks */
+  }
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-buttons {
+    justify-content: center;
+  }
   .about-content {
     grid-template-columns: 1fr;
   }
+}
 
+@media (max-width: 768px) {
   .nav-menu {
-    display: none;
+    display: none; /* Sembunyikan menu desktop */
   }
-
+  .hamburger {
+    display: block; /* Tampilkan hamburger */
+  }
+  .container {
+    padding: 3rem 1rem;
+  }
   .hero-title {
     font-size: 2.5rem;
   }
-
+  .section-title {
+    font-size: 2rem;
+  }
   .tech-grid {
     grid-template-columns: 1fr;
   }
-
   .contact-buttons {
     flex-direction: column;
   }
-
   .footer-content {
     flex-direction: column;
     gap: 1rem;
+    text-align: center;
+  }
+  .monitor-frame {
+    padding: 1rem;
+  }
+  .screen {
+    width: 250px;
+    height: 250px;
   }
 }
