@@ -34,9 +34,18 @@
 
     <section class="hero">
       <div class="crt-overlay"></div>
+      <!-- CHANGE: Added parallax background layers -->
+      <div class="parallax-layer parallax-layer-1" data-speed="0.2"></div>
+      <div class="parallax-layer parallax-layer-2" data-speed="0.5"></div>
+      
+      <!-- CHANGE: Added floating elements for parallax -->
+      <div class="floating-element">▲</div>
+      <div class="floating-element">●</div>
+      <div class="floating-element">■</div>
+      
       <div class="hero-container">
         <div class="hero-content">
-          <div class="hero-text">
+          <div class="hero-text parallax-element" data-speed="0.3">
             <div class="terminal-window">
               <div class="terminal-header">
                 <div class="terminal-buttons">
@@ -59,7 +68,10 @@
               <span class="glitch neon-text" data-text="RIZIQ KHAN">RIZIQ KHAN</span>
             </h1>
             <p class="hero-subtitle pixel-text">SOFTWARE_ENGINEER.EXE</p>
-            <p class="hero-description">My name is Muhammad Fakhri Riziq Khan, I am 17 years old and was born in Cirebon, Indonesia. I have a strong interest in technology, especially in software development and programming. I enjoy learning new things, solving problems through code, and building useful applications.</p>
+            <p class="hero-description">
+              My name is Muhammad Fakhri Riziq Khan, I am 17 years old and was born in Cirebon, Indonesia. I have a strong interest in technology, especially in software development and programming. I enjoy learning new things, solving
+              problems through code, and building useful applications.
+            </p>
             <div class="hero-buttons">
               <button class="retro-btn primary" onclick="scrollToSection('contact')">
                 <span>CONTACT.BAT</span>
@@ -71,7 +83,7 @@
               </a>
             </div>
           </div>
-          <div class="hero-image">
+          <div class="hero-image parallax-element" data-speed="0.1">
             <div class="crt-monitor">
               <div class="monitor-frame">
                 <div class="screen">
@@ -92,10 +104,10 @@
     <section id="about" class="about">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title glitch" data-text="ABOUT.TXT">ABOUT.TXT</h2>
+          <h2 class="section-title glitch parallax-element" data-text="ABOUT.TXT" data-speed="0.2">ABOUT.TXT</h2>
         </div>
         <div class="about-content">
-          <div class="about-text">
+          <div class="about-text parallax-element" data-speed="0.1">
             <div class="retro-card">
               <div class="card-header">
                 <span class="file-icon">📄</span>
@@ -108,7 +120,7 @@
               </div>
             </div>
           </div>
-          <div class="tech-stack">
+          <div class="tech-stack parallax-element" data-speed="0.15">
             <h3 class="pixel-text">TECH_STACK.SYS</h3>
             <div class="tech-grid">
               <div class="tech-card">
@@ -153,7 +165,11 @@
               <div class="card-content">
                 <h3>Website Developer (IDN Connect)</h3>
                 <p class="company">SMK IDN Boarding School</p>
-                <p>I am currently entrusted with the responsibility of developing one of my school’s official websites, called IDN Connect. Unlike a typical school blog, this platform is designed to be more complex and feature-rich, serving not only as an information hub but also as a space that supports interaction and engagement within the school community. This project has allowed me to apply my technical skills in a real-world context while also enhancing my ability to manage, design, and implement a website that meets broader needs.</p>
+                <p>
+                  I am currently entrusted with the responsibility of developing one of my school’s official websites, called IDN Connect. Unlike a typical school blog, this platform is designed to be more complex and feature-rich, serving
+                  not only as an information hub but also as a space that supports interaction and engagement within the school community. This project has allowed me to apply my technical skills in a real-world context while also enhancing
+                  my ability to manage, design, and implement a website that meets broader needs.
+                </p>
                 <div class="tech-tags">
                   <span class="tag">HTML</span>
                   <span class="tag">CSS</span>
@@ -176,7 +192,11 @@
               <div class="card-content">
                 <h3>Fullstack Web Developer</h3>
                 <p class="company">Percetakan Firdaus</p>
-                <p>As a Fullstack Web Developer at Percetakan Firdaus, I am responsible for developing and maintaining the company's website and web applications. My role involves both frontend and backend development, ensuring a seamless user experience and robust functionality. I work with technologies such as HTML, CSS, JavaScript, React, Tailwind, PHP, and Laravel to create efficient and scalable solutions that meet the needs of the business and its customers.</p>
+                <p>
+                  As a Fullstack Web Developer at Percetakan Firdaus, I am responsible for developing and maintaining the company's website and web applications. My role involves both frontend and backend development, ensuring a seamless
+                  user experience and robust functionality. I work with technologies such as HTML, CSS, JavaScript, React, Tailwind, PHP, and Laravel to create efficient and scalable solutions that meet the needs of the business and its
+                  customers.
+                </p>
                 <div class="tech-tags">
                   <span class="tag">HTML</span>
                   <span class="tag">CSS</span>
@@ -198,7 +218,10 @@
               <div class="card-content">
                 <h3>Web Design Competition (Batiku.)</h3>
                 <p class="company">Udayana University</p>
-                <p>I had the opportunity to lead a team in a Web Design competition organized by Udayana University in Bali. Although my team and I only reached the final round, the experience taught me valuable lessons in leadership, teamwork, time management, and creativity, which continue to strengthen my growth as a future software engineer.</p>
+                <p>
+                  I had the opportunity to lead a team in a Web Design competition organized by Udayana University in Bali. Although my team and I only reached the final round, the experience taught me valuable lessons in leadership,
+                  teamwork, time management, and creativity, which continue to strengthen my growth as a future software engineer.
+                </p>
                 <div class="tech-tags">
                   <span class="tag">JavaScript</span>
                   <span class="tag">CSS</span>
@@ -217,7 +240,10 @@
               <div class="card-content">
                 <h3>Web Development (SemuaBisa)</h3>
                 <p class="company">Lampung University</p>
-                <p>I had the opportunity to participate in a Website Development competition organized by UNILA University. Although I only reached the final round, the majority of the competitors were university students, which made the experience even more meaningful. This achievement not only strengthened my technical skills but also enhanced my confidence, adaptability, and perseverance when facing highly competitive challenges.</p>
+                <p>
+                  I had the opportunity to participate in a Website Development competition organized by UNILA University. Although I only reached the final round, the majority of the competitors were university students, which made the
+                  experience even more meaningful. This achievement not only strengthened my technical skills but also enhanced my confidence, adaptability, and perseverance when facing highly competitive challenges.
+                </p>
                 <div class="tech-tags">
                   <span class="tag">JavaScript</span>
                   <span class="tag">CSS</span>
@@ -234,10 +260,11 @@
     <section id="projects" class="projects">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title glitch" data-text="PROJECTS.DIR">PROJECTS.DIR</h2>
+          <h2 class="section-title glitch parallax-element" data-text="PROJECTS.DIR" data-speed="0.2">PROJECTS.DIR</h2>
         </div>
         <div class="projects-grid">
-          <div class="project-card">
+          <!-- CHANGE: Added parallax-element class to all project cards -->
+          <div class="project-card parallax-element" data-speed="0.1">
             <div class="project-screen">
               <img src="images/projects/WS_Restaurant_Application_(Poster).png" alt="Waroeng Skena" />
               <div class="project-scanlines"></div>
@@ -249,14 +276,9 @@
                 <span class="tag">Flutter</span>
                 <span class="tag">Dart</span>
               </div>
-              <div class="project-buttons">
-                <a href="https://github.com/fakhrirk/ws_skl1/" target="_blank">
-                  <button class="retro-btn small secondary">Github</button>
-                </a>
-              </div>
             </div>
           </div>
-          <div class="project-card">
+          <div class="project-card parallax-element" data-speed="0.15">
             <div class="project-screen">
               <img src="images/projects/Poster-Batiku _ Bahadur_Koding.png" alt="Batiku" />
               <div class="project-scanlines"></div>
@@ -269,54 +291,46 @@
                 <span class="tag">CSS</span>
                 <span class="tag">JavaScript</span>
               </div>
-              <div class="project-buttons">
-                <a href="https://github.com/fakhrirk/Udayana-Bali" target="_blank">
-                  <button class="retro-btn small secondary">Github</button>
-                </a>
-              </div>
             </div>
           </div>
-          <div class="project-card">
+          <div class="project-card parallax-element" data-speed="0.1">
             <div class="project-screen">
-              <img src="images/projects/Poster_inventory.png" alt="Inventory Website" />
+              <img src="images/projects/Kelola.web(Poster).png" alt="Kelola Website" />
               <div class="project-scanlines"></div>
             </div>
             <div class="project-info">
-              <h3>Inventory Website</h3>
-              <p>This is one of the projects I created: an inventory website. It allows you to view your store's stock in real time, analyze your Cost of Goods Sold, and record every transaction (receipts, expenses, and transfers) in detail for transparency and accountability.</p>
+              <h3>Kelola.web</h3>
+              <p>
+                Kelola.web is a web-based platform designed to manage employee attendance and automatically calculate monthly salaries. It also provides insights into the company's monthly payroll expenses, helping businesses streamline
+                workforce management and financial planning.
+              </p>
               <div class="tech-tags">
-                <span class="tag">Vue.js</span>
-                <span class="tag">D3.js</span>
-                <span class="tag">Express</span>
-              </div>
-              <div class="project-buttons">
-                <a href="https://github.com/fakhrirk/ws_skl1/" target="_blank">
-                  <button class="retro-btn small secondary">Github</button>
-                </a>
+                <span class="tag">HTML</span>
+                <span class="tag">Tailwind</span>
+                <span class="tag">Laravel</span>
+                <span class="tag">MySQL</span>
               </div>
             </div>
           </div>
-          <div class="project-card">
+          <div class="project-card parallax-element" data-speed="0.2">
             <div class="project-screen">
               <img src="images/projects/poster_web_perc_firdaus.png" alt="Percetakan Firdaus Website" />
               <div class="project-scanlines"></div>
             </div>
             <div class="project-info">
               <h3>Percetakan Firdaus Website</h3>
-              <p>This is one of the company websites I've been developing. On this website, buyers can not only view product images and details but also purchase directly from the website. The website features a bot that can answer questions users may have.</p>
+              <p>
+                This is one of the company websites I've been developing. On this website, buyers can not only view product images and details but also purchase directly from the website. The website features a bot that can answer questions
+                users may have.
+              </p>
               <div class="tech-tags">
                 <span class="tag">HTML</span>
                 <span class="tag">CSS</span>
                 <span class="tag">JavaScript</span>
               </div>
-              <div class="project-buttons">
-                <a href="https://github.com/#404" target="_blank">
-                  <button class="retro-btn small secondary">Github</button>
-                </a>
-              </div>
             </div>
           </div>
-          <div class="project-card">
+          <div class="project-card parallax-element" data-speed="0.1">
             <div class="project-screen">
               <img src="images/projects/Berita_kita-poster.png" alt="Berita Kita" />
               <div class="project-scanlines"></div>
@@ -328,11 +342,6 @@
               <div class="tech-tags">
                 <span class="tag">Flutter</span>
                 <span class="tag">Dart</span>
-              </div>
-              <div class="project-buttons">
-                <a href="https://github.com/fakhrirk/Berita_Kita-newsApp-" target="_blank">
-                  <button class="retro-btn small secondary">Github</button>
-                </a>
               </div>
             </div>
           </div>
