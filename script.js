@@ -1,4 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+// Partials Loader
+async function loadPartials(elementId, url) {
+  try {
+    const response = await fetch(url)
+    if (!response.oke){
+      throw new Error (`Gagal untuk memuat ${url}: ${response.statusText}`)
+    }
+    const htmlContent = await response.text()
+    const targetElement = document.getElementById(elementId);
+    if (targetElement) {
+      targetElement.innerHTML = htmlContent;
+    }
+  } catch (error) {
+    console.error("Error loading partial:", error);
+  }
+}
+
+
+loadPartials("dynamic-header", "partials/header.html")
+loadPartials("dynamic-footer", "partials/footer.html")
+
   // Typewriter effect for hero section
   const typewriterText = document.getElementById("typewriter-text")
   const commands = ["run portfolio.exe", "loading profile...", "initializing skills...", "ready to code!"]
@@ -423,6 +445,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   })()
+  
 })
 
 // Utility function for smooth scrolling to sections
