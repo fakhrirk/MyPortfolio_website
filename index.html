@@ -1,148 +1,201 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Muhammad Fakhri Riziq Khan - Web Portfolio</title>
+    <title>Muhammad Fakhri Riziq Khan — Software Engineer Portfolio</title>
+    <meta name="description" content="Muhammad Fakhri Riziq Khan — A passionate Software Engineer specializing in fullstack web development. Based in Cirebon, Indonesia." />
     <link rel="stylesheet" href="styles.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <!-- <header id="dynamic-header"></header> -->
-     <nav class="navbar">
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
       <div class="nav-container">
-        <div class="nav-logo">
-          <span class="pixel-text">FR.<span class="EXE">EXE</span></span>
-        </div>
-        <div class="nav-menu">
+        <a href="#" class="nav-logo">
+          <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path d="M16 2L28 8V24L16 30L4 24V8L16 2Z" stroke="currentColor" stroke-width="2" fill="none"/>
+            <text x="16" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor">FK</text>
+          </svg>
+        </a>
+        <div class="nav-menu" id="nav-menu">
+          <a href="#home" class="nav-link active">HOME</a>
           <a href="#about" class="nav-link">ABOUT</a>
-          <a href="#experience" class="nav-link">EXPERIENCE</a>
           <a href="#projects" class="nav-link">PROJECTS</a>
+          <a href="#journey" class="nav-link">JOURNEY</a>
           <a href="#contact" class="nav-link">CONTACT</a>
         </div>
-        <button class="hamburger">
-          <div class="bar"></div>
-        </button>
+        <div class="nav-actions">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+            <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </button>
+          <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
       </div>
     </nav>
 
-    <div class="mobile-nav">
-      <a href="#about" class="mobile-link">ABOUT</a>
-      <a href="#experience" class="mobile-link">EXPERIENCE</a>
-      <a href="#projects" class="mobile-link">PROJECTS</a>
-      <a href="#contact" class="mobile-link">CONTACT</a>
+    <!-- MOBILE NAV -->
+    <div class="mobile-overlay" id="mobile-overlay">
+      <div class="mobile-nav-content">
+        <a href="#home" class="mobile-link">HOME</a>
+        <a href="#about" class="mobile-link">ABOUT</a>
+        <a href="#projects" class="mobile-link">PROJECTS</a>
+        <a href="#journey" class="mobile-link">JOURNEY</a>
+        <a href="#contact" class="mobile-link">CONTACT</a>
+      </div>
     </div>
 
-    <section class="hero">
-      <div class="crt-overlay"></div>
-      <!-- CHANGE: Added parallax background layers -->
-      <div class="parallax-layer parallax-layer-1" data-speed="0.2"></div>
-      <div class="parallax-layer parallax-layer-2" data-speed="0.5"></div>
-      
-      <!-- CHANGE: Added floating elements for parallax -->
-      <div class="floating-element">▲</div>
-      <div class="floating-element">●</div>
-      <div class="floating-element">■</div>
-      
-      <div class="hero-container">
-        <div class="hero-content">
-          <div class="hero-text parallax-element" data-speed="0.3">
-            <div class="terminal-window">
-              <div class="terminal-header">
-                <div class="terminal-buttons">
-                  <span class="btn red"></span>
-                  <span class="btn yellow"></span>
-                  <span class="btn green"></span>
-                </div>
-                <span class="terminal-title">portfolio.exe</span>
-              </div>
-              <div class="terminal-body">
-                <div class="typewriter">
-                  <span class="prompt">C:\Users\Portfolio></span>
-                  <span class="command" id="typewriter-text"></span>
-                  <span class="cursor">_</span>
-                </div>
-              </div>
-            </div>
-            <h1 class="hero-title">
-              <span class="glitch" data-text="MUHAMMAD FAKHRI">MUHAMMAD FAKHRI</span>
-              <span class="glitch neon-text" data-text="RIZIQ KHAN">RIZIQ KHAN</span>
-            </h1>
-            <p class="hero-subtitle pixel-text">SOFTWARE_ENGINEER.EXE</p>
-            <p class="hero-description">
-              My name is Muhammad Fakhri Riziq Khan, I am 17 years old and was born in Cirebon, Indonesia. I have a strong interest in technology, especially in software development and programming. I enjoy learning new things, solving
-              problems through code, and building useful applications.
-            </p>
-            <div class="hero-buttons">
-              <button class="retro-btn primary" onclick="scrollToSection('contact')">
-                <span>CONTACT.BAT</span>
-              </button>
-              <a href="https://github.com/fakhrirk" target="_blank">
-                <button class="retro-btn secondary">
-                  <span>GITHUB.COM</span>
-                </button>
-              </a>
-            </div>
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+      <div class="hero-inner">
+        <div class="hero-name-wrapper">
+          <!-- Floating badges -->
+          <div class="floating-badge badge-icon badge-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
-          <div class="hero-image parallax-element" data-speed="0.1">
-            <div class="crt-monitor">
-              <div class="monitor-frame">
-                <div class="screen">
-                  <img src="images/pt_profile.png" alt="Muhammad Fakhri Riziq Khan" class="profile-img" />
-                  <div class="scanlines"></div>
-                </div>
-              </div>
-              <div class="monitor-base"></div>
-            </div>
+          <div class="floating-badge badge-icon badge-3">
+            <span>✦</span>
+          </div>
+          <div class="floating-badge badge-pill badge-4">SOFTWARE ENGINEER</div>
+          <div class="floating-badge badge-pill badge-5">FAKHRI ✦</div>
+          <div class="floating-badge badge-pill badge-6">FREELANCER</div>
+          <div class="floating-badge badge-pill badge-7">FULLSTACK DEVELOPER</div>
+
+          <!-- Giant name -->
+          <h1 class="hero-name">
+            <span class="name-line">MUHAMMAD</span>
+            <span class="name-line">FAKHRI</span>
+          </h1>
+        </div>
+
+        
+
+        <!-- Bottom status bar -->
+      <div class="hero-footer">
+        <!-- Code snippet (typewriter) -->
+        <div class="hero-code" id="hero-code-typewriter">
+          <code id="typewriter-code"></code><span class="typewriter-cursor">|</span>
+        </div>
+        <div class="hero-status-bar">
+          <div class="status-item">
+            <span class="status-dot"></span>
+            <span>OPEN TO WORK</span>
+          </div>
+          <div class="status-item status-border">
+            <span>BASED IN CIREBON, ID</span>
+          </div>
+          <div class="status-item status-border">
+            <span>TODAY: <strong id="current-date"></strong></span>
+          </div>
+          <div class="status-item status-border status-scroll" id="scroll-down-btn">
+            <span>SCROLL DOWN</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
           </div>
         </div>
       </div>
-      <div class="scroll-indicator">
-        <div class="pixel-arrow">▼</div>
       </div>
     </section>
-    
+
+    <!-- ABOUT SECTION -->
     <section id="about" class="about">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title glitch parallax-element" data-text="ABOUT.TXT" data-speed="0.2">ABOUT.TXT</h2>
-        </div>
-        <div class="about-content">
-          <div class="about-text parallax-element" data-speed="0.1">
-            <div class="retro-card">
-              <div class="card-header">
-                <span class="file-icon">📄</span>
-                <span>readme.txt</span>
-              </div>
-              <div class="card-content">
-                <p>I'm a passionate software engineer with expertise in building scalable web applications and user interfaces. My journey in technology spans across frontend development, backend systems, and everything in between.</p>
-                <p>Currently, I specialize in modern web technologies including React and Tailwind. I'm particularly interested in creating accessible, performant applications that provide exceptional user experiences.</p>
-                <p>When I'm not coding, you can find me exploring new technologies, contributing to open source projects, or sharing knowledge with the developer community.</p>
+        <h2 class="section-title reveal">ABOUT ME</h2>
+        <div class="about-grid">
+          <!-- Bio Card -->
+          <div class="about-card about-bio reveal">
+            <div class="about-card-inner dark-card">
+              <p class="about-greeting">Hi, my name is</p>
+              <h3 class="about-name">MUHAMMAD FAKHRI RIZIQ KHAN</h3>
+              <p class="about-desc">I'm a passionate software engineer with expertise in building scalable web applications and user interfaces. My journey in technology spans across frontend development, backend systems, and everything in between. Currently specializing in modern web technologies including React, Laravel, and Tailwind CSS.</p>
+              <a href="images/projects/Muhammad-Fakhri-Riziq-K_RESUME_MAY-2026_3.pdf" target="_blank" class="btn-resume">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                My Resume
+              </a>
+              <div class="card-hover-overlay">
+                <button class="btn-detail" data-modal="bio">Detail</button>
               </div>
             </div>
           </div>
-          <div class="tech-stack parallax-element" data-speed="0.15">
-            <h3 class="pixel-text">TECH_STACK.SYS</h3>
-            <div class="tech-grid">
-              <div class="tech-card">
-                <div class="tech-icon">💻</div>
-                <h4>FRONTEND</h4>
-                <p>React and Tailwind CSS</p>
+          <!-- Photo Card -->
+          <div class="about-card about-photo reveal">
+            <div class="about-card-inner light-card">
+              <div class="photo-wrapper">
+                <img src="images/pt_profile_2.png" alt="Muhammad Fakhri Riziq Khan" class="profile-photo" />
               </div>
-              <div class="tech-card">
-                <div class="tech-icon">🗄️</div>
-                <h4>BACKEND</h4>
-                <p>PHP and Laravel</p>
+              <div class="photo-status">
+                <span class="status-dot"></span>
+                <span>Available for work</span>
               </div>
-              <div class="tech-card">
-                <div class="tech-icon">🌐</div>
-                <h4>WEB</h4>
-                <p>HTML, CSS, JavaScript</p>
+              <div class="card-hover-overlay">
+                <button class="btn-detail" data-modal="photo">Detail</button>
               </div>
-              <div class="tech-card">
-                <div class="tech-icon">📱</div>
-                <h4>MOBILE</h4>
-                <p>Flutter</p>
+            </div>
+          </div>
+          <!-- Education Card -->
+          <div class="about-card about-edu reveal">
+            <div class="about-card-inner">
+              <div class="edu-header">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5"/></svg>
+                <span class="edu-label">EDUCATION</span>
+              </div>
+              <h4 class="edu-school">SMK IDN Boarding School</h4>
+              <p class="edu-major">Software Engineering</p>
+              <div class="edu-tags">
+                <span class="edu-tag">Web Development</span>
+                <span class="edu-tag">Mobile Development</span>
+                <span class="edu-tag">Database</span>
+                <span class="edu-tag">UI/UX Design</span>
+              </div>
+              <div class="card-hover-overlay">
+                <button class="btn-detail" data-modal="edu">Detail</button>
+              </div>
+            </div>
+          </div>
+          <!-- Tech Stack Card -->
+          <div class="about-card about-tech reveal">
+            <div class="about-card-inner">
+              <h4 class="tech-title">MY SKILLS</h4>
+              <div class="skills-grid">
+                <div class="skill-group">
+                  <span class="skill-label">Frontend</span>
+                  <div class="skill-tags">
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Tailwind CSS</span>
+                  </div>
+                </div>
+                <div class="skill-group">
+                  <span class="skill-label">Backend</span>
+                  <div class="skill-tags">
+                    <span class="skill-tag">PHP</span>
+                    <span class="skill-tag">Laravel</span>
+                    <span class="skill-tag">Express JS</span>
+                    <span class="skill-tag">MySQL</span>
+                  </div>
+                </div>
+                <div class="skill-group">
+                  <span class="skill-label">Mobile</span>
+                  <div class="skill-tags">
+                    <span class="skill-tag">Flutter</span>
+                    <span class="skill-tag">Dart</span>
+                  </div>
+                </div>
+                <div class="skill-group">
+                  <span class="skill-label">Tools</span>
+                  <div class="skill-tags">
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">VS Code</span>
+                    <span class="skill-tag">Figma</span>
+                    <span class="skill-tag">TypeScript</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -150,279 +203,345 @@
       </div>
     </section>
 
-     <section id="projects" class="projects">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title glitch parallax-element" data-text="PROJECTS.DIR" data-speed="0.2">PROJECTS.DIR</h2>
+    <!-- ===== ABOUT MODALS ===== -->
+    <div class="about-modal-overlay" id="about-modal-overlay">
+      <div class="about-modal" id="about-modal">
+        <button class="modal-close" id="modal-close">&times;</button>
+        <div class="modal-body" id="modal-body"></div>
+      </div>
+    </div>
+
+    <!-- Modal Templates -->
+    <template id="modal-bio">
+      <div class="modal-bio-content">
+        <p class="modal-label">ABOUT ME</p>
+        <h2 class="modal-title">Muhammad Fakhri<br/>Riziq Khan</h2>
+        <div class="modal-divider"></div>
+        <p class="modal-text">I'm a passionate <strong>Software Engineer</strong> currently studying at SMK IDN Boarding School, where I specialize in Rekayasa Perangkat Lunak (Software Engineering). My curiosity for technology started early, and it quickly grew into a deep love for building things on the web and mobile.</p>
+        <p class="modal-text">Over the years, I've developed hands-on experience across the full development stack — from crafting pixel-perfect frontends with <strong>React</strong> and <strong>Tailwind CSS</strong>, to building robust backend systems with <strong>Laravel</strong> and <strong>MySQL</strong>. I've also ventured into mobile development using <strong>Flutter & Dart</strong>, creating cross-platform apps that feel native on any device.</p>
+        <p class="modal-text">Beyond coding, I've competed in national-level web development and web design competitions, reaching finals against university students. These experiences have sharpened not only my technical skills but also my ability to work under pressure, collaborate with a team, and lead with creativity.</p>
+        <p class="modal-text">I believe great software is a blend of <strong>clean code, intentional design, and real-world impact</strong>. Whether it's a full-stack web application, a mobile app, or a company website with an AI chatbot — I approach every project with the same level of commitment and attention to detail.</p>
+        <p class="modal-text">Currently open to <strong>freelance projects, internships, and collaborative opportunities</strong>. Let's build something great together.</p>
+        <div class="modal-tags">
+          <span>React</span><span>Laravel</span><span>Flutter</span><span>MySQL</span><span>Tailwind CSS</span><span>TypeScript</span>
         </div>
-        <div class="projects-grid">
-          <!-- CHANGE: Added parallax-element class to all project cards -->
-          <div class="project-card parallax-element" data-speed="0.1">
-            <div class="project-screen">
+      </div>
+    </template>
+
+    <template id="modal-photo">
+      <div class="modal-photo-content">
+        <p class="modal-label">MY GALLERY</p>
+        <h2 class="modal-title">Moments &<br/>Memories</h2>
+        <div class="modal-divider"></div>
+        <div class="modal-photo-grid">
+          <img src="images/myphotos/834_.jpg" alt="Photo 1" />
+          <img src="images/myphotos/IMG_20250913_203727.jpg" alt="Photo 2" />
+          <img src="images/myphotos/Photo_Formal_3x4.png" alt="Photo 3" />
+        </div>
+        <div class="modal-photo-full">
+          <img src="images/myphotos/NB_NAGI.jpeg" alt="NB Nagi" />
+        </div>
+        <div class="modal-resume-action">
+          <a href="images/projects/Muhammad-Fakhri-Riziq-K_RESUME_MAY-2026_3.pdf" download class="btn-modal-resume">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            My Resume
+          </a>
+        </div>
+      </div>
+    </template>
+
+    <template id="modal-edu">
+      <div class="modal-edu-content">
+        <p class="modal-label">EDUCATION</p>
+        <h2 class="modal-title">SMK IDN<br/>Boarding School</h2>
+        <div class="modal-divider"></div>
+        <div class="modal-school-img">
+          <img src="images/idn_boarding_school.png" alt="SMK IDN Boarding School" />
+        </div>
+        <div class="modal-edu-meta">
+          <span class="modal-edu-badge">Rekayasa Perangkat Lunak</span>
+          <span class="modal-edu-year">2022 — 2026</span>
+        </div>
+        <p class="modal-text">SMK IDN Boarding School is a vocational Islamic boarding school (pesantren) under the Yayasan IDN foundation, located in Jonggol, Bogor, West Java. It is widely recognized for its unique integration of <strong>advanced IT education</strong> with strong Islamic values based on Al-Qur'an and Sunnah.</p>
+        <p class="modal-text">The school prepares students with <strong>industry-grade skills and international certifications</strong>, producing graduates who are ready to work, continue to higher education (including Politeknik IDN), or study abroad in countries like Malaysia, China, and Turkey.</p>
+        <div class="modal-edu-programs">
+          <h4>Programs Offered</h4>
+          <ul>
+            <li><strong>Rekayasa Perangkat Lunak (RPL)</strong> — Web & Mobile Programming (PHP, Laravel, Flutter)</li>
+            <li><strong>Teknik Komputer Jaringan (TKJ)</strong> — Networking, Cisco, DevOps, AWS Cloud</li>
+            <li><strong>Desain Komunikasi Visual (DKV)</strong> — UI/UX Design, Graphic Design, 3D Multimedia</li>
+          </ul>
+        </div>
+        <div class="modal-tags">
+          <span>Web Dev</span><span>Mobile Dev</span><span>UI/UX</span><span>Database</span><span>Boarding School</span><span>IT Focus</span>
+        </div>
+      </div>
+    </template>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2 class="section-title reveal">SELECTED WORKS</h2>
+
+        <!-- Project 1 -->
+        <div class="project-case reveal">
+          <div class="project-info">
+            <h3 class="project-name">PESANANKU.WEB</h3>
+            <p class="project-desc">A full-service web application designed to digitize the F&B dining experience with contactless ordering, payments, and a robust dashboard for real-time sales tracking.</p>
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">Tailwind CSS</span>
+              <span class="project-tag">Express JS</span>
+              <span class="project-tag">TypeScript</span>
+            </div>
+          </div>
+          <div class="project-mockup">
+            <div class="mockup-browser">
+              <div class="mockup-dots"><span></span><span></span><span></span></div>
+              <img src="images/projects/Pesananku.Web(Promotion Poster) Basic.png" alt="Pesananku.Web" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-case reverse reveal">
+          <div class="project-info">
+            <h3 class="project-name">KELOLA.WEB</h3>
+            <p class="project-desc">A web-based platform for managing employee attendance and automatically calculating monthly salaries, with insights into payroll expenses for better financial planning.</p>
+            <div class="project-tags">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">Tailwind</span>
+              <span class="project-tag">Laravel</span>
+              <span class="project-tag">MySQL</span>
+            </div>
+          </div>
+          <div class="project-mockup">
+            <div class="mockup-browser">
+              <div class="mockup-dots"><span></span><span></span><span></span></div>
+              <img src="images/projects/Kelola.web(Poster).png" alt="Kelola.web" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-case reveal">
+          <div class="project-info">
+            <h3 class="project-name">PERCETAKAN FIRDAUS</h3>
+            <p class="project-desc">A company website where buyers can view product images and details, purchase directly, and interact with an AI bot that answers customer questions.</p>
+            <div class="project-tags">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+          </div>
+          <div class="project-mockup">
+            <div class="mockup-browser">
+              <div class="mockup-dots"><span></span><span></span><span></span></div>
+              <img src="images/projects/poster_web_perc_firdaus.png" alt="Percetakan Firdaus" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-case reverse reveal">
+          <div class="project-info">
+            <h3 class="project-name">RESTAURANT APP (WAROENG SKENA)</h3>
+            <p class="project-desc">A mobile restaurant application where customers can order food without having to queue at the cashier. Built with Flutter for cross-platform support.</p>
+            <div class="project-tags">
+              <span class="project-tag">Flutter</span>
+              <span class="project-tag">Dart</span>
+            </div>
+          </div>
+          <div class="project-mockup">
+            <div class="mockup-browser">
+              <div class="mockup-dots"><span></span><span></span><span></span></div>
               <img src="images/projects/WS_Restaurant_Application_(Poster).png" alt="Waroeng Skena" />
-              <div class="project-scanlines"></div>
-            </div>
-            <div class="project-info">
-              <h3>Restaurant Application (WS)</h3>
-              <p>I created a static restaurant app called "Waroeng Skena." With this app, you can order food without having to queue at the cashier.</p>
-              <div class="tech-tags">
-                <span class="tag">Flutter</span>
-                <span class="tag">Dart</span>
-              </div>
             </div>
           </div>
-          <div class="project-card parallax-element" data-speed="0.15">
-            <div class="project-screen">
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-case reveal">
+          <div class="project-info">
+            <h3 class="project-name">BATIKU. (WEB DESIGN)</h3>
+            <p class="project-desc">A website project created for a web design competition at Udayana University, showcasing Indonesian batik culture with modern web technologies.</p>
+            <div class="project-tags">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+          </div>
+          <div class="project-mockup">
+            <div class="mockup-browser">
+              <div class="mockup-dots"><span></span><span></span><span></span></div>
               <img src="images/projects/Poster-Batiku _ Bahadur_Koding.png" alt="Batiku" />
-              <div class="project-scanlines"></div>
-            </div>
-            <div class="project-info">
-              <h3>Website Design (Batiku.)</h3>
-              <p>This is a website project that I made when I took part in a competition at Udayana University.</p>
-              <div class="tech-tags">
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">JavaScript</span>
-              </div>
             </div>
           </div>
-          <div class="project-card parallax-element" data-speed="0.1">
-            <div class="project-screen">
-              <img src="images/projects/Kelola.web(Poster).png" alt="Kelola Website" />
-              <div class="project-scanlines"></div>
-            </div>
-            <div class="project-info">
-              <h3>Kelola.web</h3>
-              <p>
-                Kelola.web is a web-based platform designed to manage employee attendance and automatically calculate monthly salaries. It also provides insights into the company's monthly payroll expenses, helping businesses streamline
-                workforce management and financial planning.
-              </p>
-              <div class="tech-tags">
-                <span class="tag">HTML</span>
-                <span class="tag">Tailwind</span>
-                <span class="tag">Laravel</span>
-                <span class="tag">MySQL</span>
-              </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-case reverse reveal">
+          <div class="project-info">
+            <h3 class="project-name">BERITA KITA (NEWS APP)</h3>
+            <p class="project-desc">A mobile news application providing accurate and reliable latest news. Built with Flutter for a smooth cross-platform reading experience.</p>
+            <div class="project-tags">
+              <span class="project-tag">Flutter</span>
+              <span class="project-tag">Dart</span>
             </div>
           </div>
-          <div class="project-card parallax-element" data-speed="0.2">
-            <div class="project-screen">
-              <img src="images/projects/poster_web_perc_firdaus.png" alt="Percetakan Firdaus Website" />
-              <div class="project-scanlines"></div>
-            </div>
-            <div class="project-info">
-              <h3>Percetakan Firdaus Website</h3>
-              <p>
-                This is one of the company websites I've been developing. On this website, buyers can not only view product images and details but also purchase directly from the website. The website features a bot that can answer questions
-                users may have.
-              </p>
-              <div class="tech-tags">
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">JavaScript</span>
-              </div>
-            </div>
-          </div>
-          <div class="project-card parallax-element" data-speed="0.1">
-            <div class="project-screen">
+          <div class="project-mockup">
+            <div class="mockup-browser">
+              <div class="mockup-dots"><span></span><span></span><span></span></div>
               <img src="images/projects/Berita_kita-poster.png" alt="Berita Kita" />
-              <div class="project-scanlines"></div>
-            </div>
-            <div class="project-info">
-              <h3>News App (Berita Kita)</h3>
-              <p>This is one of the static news apps I created, called "Our News." In this app, you can view the latest news accurately and reliably.</p>
-              <p></p>
-              <div class="tech-tags">
-                <span class="tag">Flutter</span>
-                <span class="tag">Dart</span>
-              </div>
-            </div>
-          </div>
-          <div class="project-card parallax-element" data-speed="0.1">
-            <div class="project-screen">
-              <img src="images/projects/Pesananku.Web(Promotion Poster) Basic.png" alt="Berita Kita" />
-              <div class="project-scanlines"></div>
-            </div>
-            <div class="project-info">
-              <h3>Pesananku.Web (F&B Management System)</h3>
-              <p>A full-service web application designed to digitize the F&B
-                  dining experience. The platform enables contactless
-                  ordering and payments for customers while providing
-                  business owners with a robust dashboard for real-time
-                  sales tracking, automated financial reporting, and menu
-                  performance analysis. Key features include a user-friendly
-                  interface, multi-payment integration, and a dedicated admin
-                  portal for operational efficiency.</p>
-              <p></p>
-              <div class="tech-tags">
-                <span class="tag">React</span>
-                <span class="tag">Taiwind CSS</span>
-                <span class="tag">Express JS</span>
-                <span class="tag">TypeScript</span>
-              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="experience" class="experience">
+    <!-- JOURNEY SECTION -->
+    <section id="journey" class="journey">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title glitch" data-text="EXPERIENCE.LOG">EXPERIENCE.LOG</h2>
-        </div>
-        <div class="experience-timeline">
-          <div class="experience-item">
-            <div class="retro-card">
-              <div class="card-header">
-                <span class="file-icon">💻</span>
-                <span>website_developer.exe</span>
-                <span class="date-badge">PRESENT</span>
+        <h2 class="section-title reveal">MY JOURNEY</h2>
+        <div class="timeline">
+          <div class="timeline-line"></div>
+
+          <div class="timeline-item left reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-badge badge-pro">WEBSITE PROJECT</span>
+              <h4>Website Developer — IDN SKL SUBMITTER</h4>
+              <p class="timeline-company">SMK IDN Boarding School</p>
+              <p class="timeline-desc">Engineered a centralized Academic Submission System using Laravel 11, automating the grading and reporting workflow for institutional projects. Architected a multi-role platform with automated grade aggregation and seamless report integration, significantly improving data management efficiency.</p>
+              <div class="timeline-tags">
+                <span>Laravel</span><span>Tailwind CSS</span><span>MySQL</span>
               </div>
-              <div class="card-content">
-                <h3>Website Developer (IDN Connect)</h3>
-                <p class="company">SMK IDN Boarding School</p>
-                <p>
-                  I am currently entrusted with the responsibility of developing one of my school’s official websites, called IDN Connect. Unlike a typical school blog, this platform is designed to be more complex and feature-rich, serving
-                  not only as an information hub but also as a space that supports interaction and engagement within the school community. This project has allowed me to apply my technical skills in a real-world context while also enhancing
-                  my ability to manage, design, and implement a website that meets broader needs.
-                </p>
-                <div class="tech-tags">
-                  <span class="tag">HTML</span>
-                  <span class="tag">CSS</span>
-                  <span class="tag">JavaScript</span>
-                  <span class="tag">Tailwind</span>
-                  <span class="tag">React</span>
-                  <span class="tag">MySQL</span>
-                  <span class="tag">Laravel</span>
-                </div>
-              </div>
+              <span class="timeline-year">PRESENT</span>
             </div>
           </div>
-          <div class="experience-item">
-            <div class="retro-card">
-              <div class="card-header">
-                <span class="file-icon">💼</span>
-                <span>software_engineer.exe</span>
-                <span class="date-badge">2023 — PRESENT</span>
+
+          <div class="timeline-item right reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-badge badge-pro">PART TIME</span>
+              <h4>Fullstack Web Developer</h4>
+              <p class="timeline-company">Percetakan Firdaus</p>
+              <p class="timeline-desc">Developing and maintaining the company's website and web applications with both frontend and backend expertise.</p>
+              <div class="timeline-tags">
+                <span>React</span><span>Laravel</span><span>Tailwind</span>
               </div>
-              <div class="card-content">
-                <h3>Fullstack Web Developer</h3>
-                <p class="company">Percetakan Firdaus</p>
-                <p>
-                  As a Fullstack Web Developer at Percetakan Firdaus, I am responsible for developing and maintaining the company's website and web applications. My role involves both frontend and backend development, ensuring a seamless
-                  user experience and robust functionality. I work with technologies such as HTML, CSS, JavaScript, React, Tailwind, PHP, and Laravel to create efficient and scalable solutions that meet the needs of the business and its
-                  customers.
-                </p>
-                <div class="tech-tags">
-                  <span class="tag">HTML</span>
-                  <span class="tag">CSS</span>
-                  <span class="tag">JavaScript</span>
-                  <span class="tag">Tailwind</span>
-                  <span class="tag">React</span>
-                  <span class="tag">Laravel</span>
-                </div>
-              </div>
+              <span class="timeline-year">2024 — 2025</span>
             </div>
           </div>
-          <div class="experience-item">
-            <div class="retro-card">
-              <div class="card-header">
-                <span class="file-icon">🎖️</span>
-                <span>competition.exe</span>
-                <span class="date-badge">2024</span>
+
+          <div class="timeline-item left reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-badge badge-comp">COMPETITION</span>
+              <h4>School Web Development — IDN Boarding School</h4>
+              <p class="timeline-company">JAGOAN HOSTING</p>
+              <p class="timeline-desc">Architected a comprehensive UI/UX overhaul for the IDN Boarding School web infrastructure, securing a Top 10 finish out of 300+ competing teams. Achieved the 'Golden Ticket' award for exceptional development velocity and technical excellence, delivering a production-ready system ahead of aggressive deadlines.</p>
+              <div class="timeline-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Tailwind CSS</span>
               </div>
-              <div class="card-content">
-                <h3>Web Design Competition (Batiku.)</h3>
-                <p class="company">Udayana University</p>
-                <p>
-                  I had the opportunity to lead a team in a Web Design competition organized by Udayana University in Bali. Although my team and I only reached the final round, the experience taught me valuable lessons in leadership,
-                  teamwork, time management, and creativity, which continue to strengthen my growth as a future software engineer.
-                </p>
-                <div class="tech-tags">
-                  <span class="tag">JavaScript</span>
-                  <span class="tag">CSS</span>
-                  <span class="tag">HTML</span>
-                </div>
-              </div>
+              <span class="timeline-year">2025</span>
             </div>
           </div>
-          <div class="experience-item">
-            <div class="retro-card">
-              <div class="card-header">
-                <span class="file-icon">🎖️</span>
-                <span>competition.exe</span>
-                <span class="date-badge">2024</span>
+
+          <div class="timeline-item right reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-badge badge-comp">COMPETITION</span>
+              <h4>Web Design Competition — Batiku.</h4>
+              <p class="timeline-company">Udayana University, Bali</p>
+              <p class="timeline-desc">Led a team to the final round of a Web Design competition, gaining valuable experience in leadership, teamwork, and creativity.</p>
+              <div class="timeline-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
               </div>
-              <div class="card-content">
-                <h3>Web Development (SemuaBisa)</h3>
-                <p class="company">Lampung University</p>
-                <p>
-                  I had the opportunity to participate in a Website Development competition organized by UNILA University. Although I only reached the final round, the majority of the competitors were university students, which made the
-                  experience even more meaningful. This achievement not only strengthened my technical skills but also enhanced my confidence, adaptability, and perseverance when facing highly competitive challenges.
-                </p>
-                <div class="tech-tags">
-                  <span class="tag">JavaScript</span>
-                  <span class="tag">CSS</span>
-                  <span class="tag">HTML</span>
-                  <span class="tag">PHP</span>
-                </div>
+              <span class="timeline-year">2024</span>
+            </div>
+          </div>
+
+
+          <div class="timeline-item left reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-badge badge-comp">COMPETITION</span>
+              <h4>Web Development — SemuaBisa</h4>
+              <p class="timeline-company">Lampung University</p>
+              <p class="timeline-desc">Competed against university students in a Website Development competition, reaching the final round and strengthening technical skills.</p>
+              <div class="timeline-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span>
               </div>
+              <span class="timeline-year">2024</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- CONTACT SECTION -->
     <section id="contact" class="contact">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title glitch" data-text="CONTACT.BAT">CONTACT.BAT</h2>
-        </div>
-        <div class="contact-content">
-          <div class="contact-terminal">
-            <div class="terminal-window">
-              <div class="terminal-header">
-                <div class="terminal-buttons">
-                  <span class="btn red"></span>
-                  <span class="btn yellow"></span>
-                  <span class="btn green"></span>
-                </div>
-                <span class="terminal-title">contact.exe</span>
+        <div class="contact-wrapper">
+          <div class="contact-left reveal">
+            <h2 class="contact-title">LET'S START<br/>A PROJECT</h2>
+            <div class="contact-info">
+              <div class="contact-email-row" id="copy-email" data-email="dhehanprawira@gmail.com">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                <span>dhehanprawira@gmail.com</span>
+                <span class="copy-tooltip" id="copy-tooltip">Copied!</span>
               </div>
-              <div class="terminal-body">
-                <p class="terminal-text">Do you have any question ? You can contact me 😆</p>
-                <div class="contact-buttons">
-                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=dhehanprawira@gmail.com&su=SUBJECT_ANDA&body=ISI_PESAN_ANDA" target="_blank">
-                    <button class="retro-btn primary">
-                      <span>📧dhehanprawira@gmail.com</span>
-                    </button>
-                  </a>
-                  <a href="https://www.linkedin.com/in/m-fahkri-rizik-khan/" target="_blank">
-                    <button class="retro-btn secondary">
-                      <span>💼 LinkedIn</span>
-                    </button>
-                  </a>
-                </div>
+              <div class="contact-socials">
+                <a href="https://github.com/fakhrirk" target="_blank" class="social-btn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/m-fahkri-rizik-khan/" target="_blank" class="social-btn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  LinkedIn
+                </a>
               </div>
             </div>
+          </div>
+          <div class="contact-right reveal">
+            <form class="contact-form" id="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" placeholder="Your name" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" placeholder="Your email" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" placeholder="Project subject" />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+              </div>
+              <button type="submit" class="btn-submit">
+                SEND MESSAGE
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </form>
           </div>
         </div>
       </div>
     </section>
 
-  <!-- <footer id="dynamic-footer"></footer> -->
-
-  <footer class="footer">
+    <!-- FOOTER -->
+    <footer class="footer">
       <div class="container">
         <div class="footer-content">
-          <p class="pixel-text">© 2024 MUHAMMAD_FAKHRI_RIZIQ_KHAN.EXE</p>
-          <a href="#" class="my-cv">
-            <div class="social-links">
-              <p>📄</p>
-              <p>My CV Here!</p>
-            </div>
-          </a>
+          <p class="footer-copy">© 2026 Muhammad Fakhri Riziq Khan. All rights reserved.</p>
+          <button class="btn-top" id="btn-top" aria-label="Back to top">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+          </button>
         </div>
       </div>
     </footer>
