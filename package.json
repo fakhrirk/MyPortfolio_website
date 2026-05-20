@@ -117,5 +117,8 @@
   "bugs": {
     "url": "https://github.com/fakhrirk/MyPortfolio_website/issues"
   },
-  "homepage": "https://github.com/fakhrirk/MyPortfolio_website#readme"
+  "homepage": "https://github.com/fakhrirk/MyPortfolio_website#readme",
+  "optionalDependencies": {
+    "lightningcss-linux-x64-gnu": "^1.32.0"
+  }
 }
