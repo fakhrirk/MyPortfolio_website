@@ -8,6 +8,7 @@ web_modules/
 
 # Output directory
 dist/
+.vite/
 build/
 out/
 
