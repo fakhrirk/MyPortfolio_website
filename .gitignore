@@ -7,7 +7,6 @@ web_modules/
 .npm
 
 # Output directory
-dist/
 build/
 out/
 
