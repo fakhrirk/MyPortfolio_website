@@ -180,7 +180,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // Check collision with other settled badges to stack on top of them
       badges.forEach(otherBadge => {
         if (otherBadge === badge) return;
-        if (!otherBadge._isSettled) return; // Only stack on badges that have stopped falling
+        // Do not stack on the badge currently being dragged by the user
+        if (otherBadge.classList.contains("dragging")) return;
 
         const otherRect = otherBadge.getBoundingClientRect();
         
@@ -188,7 +189,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const margin = 2; // small margin to allow sliding past closely
         const horizontalOverlap = (myAbsLeft < otherRect.right - margin) && (myAbsRight > otherRect.left + margin);
         
-        if (horizontalOverlap) {
+        // Vertical check: Only treat otherBadge as a floor if the falling badge is actually above it
+        const myAbsBottom = badgeOriginalTop + currentY + badgeRect.height;
+        const verticalOverlap = myAbsBottom <= otherRect.top + 10;
+
+        if (horizontalOverlap && verticalOverlap) {
           // If there is horizontal overlap, this settled badge acts as a solid floor.
           // We always take the highest floor (smallest Y value).
           if (otherRect.top < floorAbsolute) {
@@ -224,6 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const bounds = getBounds();
         let onGround = false;
+        let hasActiveOverlap = false;
 
         // Floor collision
         if (currentY >= bounds.maxY) {
@@ -254,11 +260,54 @@ document.addEventListener("DOMContentLoaded", () => {
           velocityX = Math.abs(velocityX) * BOUNCE_X;
         }
 
+        // Resolve horizontal overlapping with other badges to prevent front-to-back stacking
+        badges.forEach(otherBadge => {
+          if (otherBadge === badge) return;
+          // Ignore the dragged badge in repulsion so it doesn't bulldoze others
+          if (otherBadge.classList.contains("dragging")) return;
+          
+          const otherRect = otherBadge.getBoundingClientRect();
+          const myRect = badge.getBoundingClientRect();
+
+          const overlapX = Math.min(myRect.right, otherRect.right) - Math.max(myRect.left, otherRect.left);
+          const overlapY = Math.min(myRect.bottom, otherRect.bottom) - Math.max(myRect.top, otherRect.top);
+
+          // We use overlapX > 2 to respect the 2px margin in getBounds
+          if (overlapX > 2 && overlapY > 0) {
+            const threshold = Math.min(myRect.height, otherRect.height) * 0.85;
+            const yDifference = Math.abs(myRect.top - otherRect.top);
+            
+            // If they are on almost the same vertical level (which causes front-to-back overlap), push them apart horizontally
+            if (yDifference < threshold) {
+              hasActiveOverlap = true;
+              
+              // WAKE UP the other badge so they push EACH OTHER in a realistic domino effect
+              if (otherBadge._isSettled) {
+                otherBadge._isSettled = false;
+                if (otherBadge._simulateGravity) otherBadge._simulateGravity();
+              }
+
+              const pushAmount = overlapX / 2 + 1;
+              if (myRect.left + myRect.width / 2 < otherRect.left + otherRect.width / 2) {
+                currentX -= pushAmount;
+                velocityX = -Math.abs(velocityX) * 0.3;
+              } else {
+                currentX += pushAmount;
+                velocityX = Math.abs(velocityX) * 0.3;
+              }
+              
+              // Bound check within walls
+              if (currentX > bounds.maxX) currentX = bounds.maxX;
+              if (currentX < bounds.minX) currentX = bounds.minX;
+            }
+          }
+        });
+
         const rot = getRotation();
         badge.style.transform = `translate(${currentX.toFixed(1)}px, ${currentY.toFixed(1)}px) rotate(${rot}deg)`;
 
         // Settled check
-        const settled = onGround && Math.abs(velocityY) < SETTLE_THRESHOLD && Math.abs(velocityX) < SETTLE_THRESHOLD;
+        const settled = onGround && !hasActiveOverlap && Math.abs(velocityY) < SETTLE_THRESHOLD && Math.abs(velocityX) < SETTLE_THRESHOLD;
         if (!settled) {
           badge._isSettled = false;
           gravityAnim = requestAnimationFrame(step);
@@ -274,6 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       gravityAnim = requestAnimationFrame(step);
     }
+    badge._simulateGravity = simulateGravity;
 
     function onPointerDown(e) {
       e.preventDefault();
@@ -295,6 +345,20 @@ document.addEventListener("DOMContentLoaded", () => {
       badge.style.zIndex = highestBadgeZIndex + 100;
       badge.style.transition = "none";
       badge.classList.add("dragging");
+
+      // ONLY wake up badges that are resting vertically on the badge being dragged
+      badges.forEach(b => {
+        if (b !== badge && b._isSettled) {
+          const bRect = b.getBoundingClientRect();
+          const draggedRect = badge.getBoundingClientRect();
+          const horizontalOverlap = (bRect.left < draggedRect.right - 2) && (bRect.right > draggedRect.left + 2);
+          const verticalOverlap = Math.abs(bRect.bottom - draggedRect.top) < 15;
+          if (horizontalOverlap && verticalOverlap) {
+            b._isSettled = false;
+            if (b._simulateGravity) b._simulateGravity();
+          }
+        }
+      });
 
       document.addEventListener("mousemove", onPointerMove);
       document.addEventListener("mouseup", onPointerUp);
